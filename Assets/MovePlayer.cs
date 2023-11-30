@@ -13,8 +13,8 @@ public class MovePlayer : MonoBehaviour
     
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
 
         movement = new Vector2(horizontal, vertical );
         movement.Normalize();
