@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -9,18 +6,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed;
 
 
+
     void Awake()
     {
         _bulletRB = GetComponent<Rigidbody2D>();
     }
 
     
+
     public void LaunchBullet(Vector2 direction)
     {
         _bulletRB.velocity = direction * speed;
 
         Destroy(gameObject, 3f);
     }
+
 
 
     private void OnCollisionEnter2D()

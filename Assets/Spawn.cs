@@ -18,7 +18,7 @@ public class Spawn : MonoBehaviour
     }
 
 
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
         randomIndex = Random.Range(0, obstacles.Length);
         randomObstacle = obstacles[randomIndex];

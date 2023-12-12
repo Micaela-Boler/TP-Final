@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - EnemyBullet
+  - GameManager
+  - Coleccionable
+  - HealthPotion
+  - Munition
   layers:
   - Default
   - TransparentFX
