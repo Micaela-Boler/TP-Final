@@ -11,9 +11,6 @@ public class GameController : MonoBehaviour
     void Update()
     {
         if (score.puntos == 10)
-        {
             changeScene.ChangeScene(3);
-        }
     }
-
 }

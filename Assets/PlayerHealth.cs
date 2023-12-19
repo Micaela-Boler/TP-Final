@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("MUNICION")]
     public Cañon municion;
+    [SerializeField] TextMeshProUGUI munition;
 
     private new AudioSource audio;
 
@@ -46,9 +48,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //DAÑO ENEMIGO
         if (collision.gameObject.CompareTag("EnemyBullet") || collision.gameObject.CompareTag("Enemy"))
             RecibirDaño(2);
 
+        //CURACIÓN
         if (collision.gameObject.CompareTag("HealthPotion"))
             if (health < maxHealth)
             {
@@ -59,10 +63,11 @@ public class PlayerHealth : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-
+        //MUNICION
         if (collision.gameObject.CompareTag("Munition"))
         {
             municion.cantidadMunicionActual += 2;
+            munition.text = municion.cantidadMunicionActual.ToString();
 
 
             audio.Play();
@@ -71,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-
+    //CAMBIO DE ESCENA
     public void ChangeScene(int sceneNumber)
     {
         SceneManager.LoadScene(sceneNumber);

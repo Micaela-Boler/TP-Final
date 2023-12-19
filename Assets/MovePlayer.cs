@@ -13,11 +13,11 @@ public class MovePlayer : MonoBehaviour
     
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
         movement = new Vector2(horizontal, vertical );
-        movement.Normalize();
+        movement.Normalize(); 
 
         transform.Translate(movement * Time.deltaTime * speed);
     }

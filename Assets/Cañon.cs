@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Cañon : MonoBehaviour
 {
-   
+
+    [Header("SPAWN DE BALAS")]
     public Bullet bulletPrefab;
     [SerializeField] Transform spawn;
 
@@ -19,7 +20,7 @@ public class Cañon : MonoBehaviour
     [Header("CAMARA")]
     [SerializeField] Camera cam;
 
-
+    [Header("ANIMACIÓN")]
     Animator animator;
 
 
@@ -29,6 +30,7 @@ public class Cañon : MonoBehaviour
         animator = GetComponent<Animator>();
 
         cantidadMunicionActual = cantidadMunicionMax;
+        UpdateText();
     }
 
 
@@ -60,6 +62,12 @@ public class Cañon : MonoBehaviour
         projectile.LaunchBullet(transform.up);
 
         cantidadMunicionActual--;
+        UpdateText();
+    }
+
+
+    void UpdateText()
+    {
         munition.text = cantidadMunicionActual.ToString();
     }
 }

@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [Header("VIDA")]
     [SerializeField] float health;
     [SerializeField] float maxHealth;
 
-
     [Header("COLECCIONABLES")]
-
-    [SerializeField] GameObject coins;
+    [SerializeField] GameObject randomDrop;
     public GameObject[] obstacles;
     int randomIndex;
 
+    [Header("ANIMACION")]
     Animator animator;
 
 
@@ -26,7 +26,6 @@ public class EnemyHealth : MonoBehaviour
 
         animator = GetComponent<Animator>();
     }
-
 
 
     private void RecibirDaño(float damage)
@@ -44,9 +43,9 @@ public class EnemyHealth : MonoBehaviour
     private void EnemyDrop()
     {
         randomIndex = Random.Range(0, obstacles.Length);
-        coins = obstacles[randomIndex];
+        randomDrop = obstacles[randomIndex];
 
-        Instantiate(coins, transform.position, Quaternion.identity);
+        Instantiate(randomDrop, transform.position, Quaternion.identity);
     }
 
 
@@ -56,12 +55,7 @@ public class EnemyHealth : MonoBehaviour
             RecibirDaño(1);
 
 
-
         if (collision.gameObject.CompareTag("Player"))
-        {
             animator.SetBool("PlayerCollision", true);
-        }
-        else
-            animator.SetBool("PlayerCollision", false);
     }
 }

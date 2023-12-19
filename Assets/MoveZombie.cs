@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 public class MoveZombie : MonoBehaviour
 {
@@ -36,7 +35,6 @@ public class MoveZombie : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     
-
     
     private void Rotation()
     {
