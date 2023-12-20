@@ -41,9 +41,13 @@ public class MoveZombie : MonoBehaviour
         //Enemigo rota hacia el jugador
         Vector2 targetDirection = target.position - transform.position;
 
-        //Suavizar la rotación
+        // Calcula el ángulo teniendo en cuenta la dirección y, y la dirección x que calculamos anteriormente
         float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
+
+        // Crea una rotación en forma de Quaternion a partir del ángulo calculado.
         Quaternion qua = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        // Suaviza la rotación actual hacia la nueva rotación usando Slerp.
         transform.localRotation = Quaternion.Slerp(transform.localRotation, qua, rotateSpeed);
     }
     

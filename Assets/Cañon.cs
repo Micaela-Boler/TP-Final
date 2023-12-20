@@ -37,9 +37,13 @@ public class Cañon : MonoBehaviour
 
     void Update()
     {
+        // Las coordenadas del mouse ahora se ajustan a la cámara
         Vector2 mouseWorldPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        
+        //Calcula la dirección desde la posición del jugador hasta el ratón.
         Vector2 direction = mouseWorldPoint - (Vector2)transform.position;
        
+        // apunta hacia el mouse
         transform.up = direction;
 
 

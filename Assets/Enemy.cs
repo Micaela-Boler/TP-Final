@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("MOVIMIENTO Y ROTACIÓN")]
 
     NavMeshAgent agent;
     [SerializeField] Transform target;
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public float rotateSpeed = 0.1f;
 
 
-    [Header("Shoot")]
+    [Header("DISPARAR")]
 
     public Bullet bulletPrefab;
 
@@ -24,7 +24,9 @@ public class Enemy : MonoBehaviour
     public Transform firingPoint;
     public float fireRate;
     float timeToFire;
-    
+
+
+    [Header("ANIMACION")]
     Animator animator;
 
 
